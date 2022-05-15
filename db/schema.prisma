@@ -63,3 +63,18 @@ model Token {
 // enum TokenType {
 //   RESET_PASSWORD
 // }
+
+model Recipe {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  title        String
+  instructions String
+  ingredients1 String
+  ingredients2 String
+  image        String?
+  ingredients3 String?
+  ingredients4 String?
+  ingredients5 String?
+  ingredients6 String?
+}
