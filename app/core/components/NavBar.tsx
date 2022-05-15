@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react"
 import { Heading, Text, Flex, Box, Image } from "@chakra-ui/react"
 import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
