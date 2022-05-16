@@ -80,11 +80,7 @@ const RecipesPage: BlitzPage = () => {
       <Box bgImage="url('')" h="100%">
         <Box borderWidth="9px" w="100%" m="auto" borderColor="whatsapp.400" boxShadow="2xl">
           <Flex flexDirection="column" justifyContent="center" alignItems="center">
-            {/* <Heading as='h1' size='2xl' mb='3'  bg='whatsapp.300' w='100%' textAlign='center' p='3' boxShadow='xl'>
-        Custom Meals
-        </Heading> */}
-
-            <Text fontSize="xl" m="2"></Text>
+            {/* <Text fontSize="xl" m="2"></Text> */}
 
             <Suspense fallback={<div>Loading...</div>}>
               <RecipesList />
