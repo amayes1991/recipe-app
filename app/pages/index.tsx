@@ -115,10 +115,10 @@ const Home: BlitzPage = ({ newRecipe }) => {
               Instructions
             </Text>
             <p>{newRecipe.instructions}</p>
-            <Text fontSize="3xl" textDecoration="underline" mt="3">
+            {/* <Text fontSize="3xl" textDecoration="underline" mt="3">
               Cook Time
             </Text>
-            <p>Ready in {newRecipe.readyInMinutes} minutes</p>
+            <p>Ready in {newRecipe.readyInMinutes} minutes</p> */}
             <Text fontSize="3xl" textDecoration="underline" mt="3">
               Ingredients
             </Text>
