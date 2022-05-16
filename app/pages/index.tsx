@@ -99,7 +99,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
         </Text>
         <main>
           <Box
-            w={["2xl", "100%"]}
+            w={["100%", "2xl"]}
             borderWidth="3px"
             borderColor="whatsapp.400"
             rounded="lg"
