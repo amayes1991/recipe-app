@@ -10,13 +10,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const key = process.env.MEAL_KEY
 
   return {
-    props: {
-      key,
-    },
+    props: {},
   }
 }
 
-const Meal: BlitzPage = ({ firstMeals }) => {
+const Meal: BlitzPage = () => {
   const [diet, setDiet] = useState("")
   const [endpoint, setEndpoint] = useState("salad")
   const [page, setPage] = useState(null)
@@ -43,13 +41,12 @@ const Meal: BlitzPage = ({ firstMeals }) => {
   }
 
   useEffect(() => {
-    // let endpoint = "salad"
     const request = async () => {
       const options = {
         method: "GET",
         headers: {
           "X-RapidAPI-Host": "themealdb.p.rapidapi.com",
-          "X-RapidAPI-Key": `${process.env.RAPID_KEY}`,
+          "X-RapidAPI-Key": `a8109881damshb34a86560438612p133d27jsn866649516d23`,
         },
       }
       const res = await fetch(`https://themealdb.p.rapidapi.com/search.php?s=${endpoint}`, options)
