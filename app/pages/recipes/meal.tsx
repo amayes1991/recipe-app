@@ -4,25 +4,26 @@ import { Text, Flex, Box, Image, Button } from "@chakra-ui/react"
 import NavBar from "app/core/components/NavBar"
 import { SearchIcon } from "@chakra-ui/icons"
 import { BlitzPage } from "blitz"
+import { z } from "zod"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const key = process.env.MEAL_KEY
 
-  // const request = async () => {
-  //   const option = {
-  //     method: "GET",
-  //     headers: {
-  //       "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
-  //       "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
-  //     },
-  //   }
-  //   const res = await fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=salad`, option)
-  //   const initial = await res.json()
+  const request = async () => {
+    const option = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
+        "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
+      },
+    }
+    const res = await fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=salad`, option)
+    const initial = await res.json()
 
-  //   let firstMeals = initial.hits
-  //   // console.log(meal)
-  //   // setMeal(firstMeals)
-  // }
+    let firstMeals = initial.hits
+    // console.log(meal)
+    setMeal(firstMeals)
+  }
   return {
     props: {
       key,
@@ -30,9 +31,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-const Meal: BlitzPage = () => {
+const Meal: BlitzPage = ({ firstMeals }) => {
   const [diet, setDiet] = useState("")
-  const [endpoint, setEndpoint] = useState("salad")
+  const [endpoint, setEndpoint] = useState(null)
   const [page, setPage] = useState(null)
   const [meal, setMeal] = useState([])
 
@@ -127,7 +128,51 @@ const Meal: BlitzPage = () => {
         </form>
       </Flex>
 
-      {endpoint === "salad" ? null : (
+      {endpoint === null ? (
+        <div>
+          {firstMeals.map((m) => (
+            <Flex key={m.id} justify="center" alignItems="center">
+              <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
+                <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={m.recipe.id}>
+                  {m.recipe.label}
+                </Text>
+                <Flex flexDirection="column">
+                  <Image key={m.recipe.id} src={m.recipe.image} alt="recipe" />
+                  <div>
+                    <Text
+                      textAlign="center"
+                      m="6"
+                      fontSize="2xl"
+                      fontWeight="bold"
+                      textDecoration="underline"
+                    >
+                      Cook Time
+                    </Text>
+                    <Text textAlign="center" fontSize="xl">
+                      Ready in {m.recipe.totalTime} minutes
+                    </Text>
+                    <Text
+                      textAlign="center"
+                      m="6"
+                      fontSize="2xl"
+                      fontWeight="bold"
+                      textDecoration="underline"
+                      key={m.recipe.ingredientLines.id}
+                    >
+                      Ingredients
+                    </Text>
+                    {m.recipe.ingredientLines.map((ing) => (
+                      <Text key={ing.id} textAlign="center" ml="8" mb="2">
+                        {ing}
+                      </Text>
+                    ))}
+                  </div>
+                </Flex>
+              </Box>
+            </Flex>
+          ))}
+        </div>
+      ) : (
         // <div>
         //   {firstMeals.map((m) => (
         //     <Flex key={m.id} justify="center" alignItems="center">
