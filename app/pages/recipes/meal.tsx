@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Meal: BlitzPage = () => {
   const [diet, setDiet] = useState("")
-  const [endpoint, setEndpoint] = useState(null)
+  const [endpoint, setEndpoint] = useState("salad")
   const [page, setPage] = useState(null)
   const [meal, setMeal] = useState([])
 
