@@ -9,19 +9,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const key = process.env.MEAL_KEY
 
   const request = async () => {
-    const options = {
+    const option = {
       method: "GET",
       headers: {
         "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
         "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
       },
     }
-    const res = await fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=salad`, options)
+    const res = await fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=salad`, option)
     const initial = await res.json()
 
     let firstMeals = initial.hits
-    console.log(meal)
-    setMeal(firstMeals)
+    // console.log(meal)
+    // setMeal(firstMeals)
   }
   return {
     props: {
@@ -128,7 +128,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
 
       {endpoint === null ? (
         <div>
-          {meal.map((m) => (
+          {firstMeals.map((m) => (
             <Flex key={m.id} justify="center" alignItems="center">
               <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
                 <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={m.recipe.id}>
