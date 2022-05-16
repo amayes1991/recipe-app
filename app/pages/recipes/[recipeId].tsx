@@ -91,8 +91,6 @@ export const Recipe = () => {
 const ShowRecipePage: BlitzPage = () => {
   return (
     <Flex flexDirection="column" justify="center" alignItems="center">
-      <p></p>
-
       <Suspense fallback={<div>Loading...</div>}>
         <Recipe />
       </Suspense>

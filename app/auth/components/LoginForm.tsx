@@ -14,8 +14,11 @@ export const LoginForm = (props: LoginFormProps) => {
 
   return (
     <div>
-      <h1>Login</h1>
-      <Box>
+      <Box justifyContent="center" alignItems="center">
+        <Text textAlign="center" fontSize="3xl">
+          Login
+        </Text>
+
         <Form
           submitText="Login"
           schema={Login}
