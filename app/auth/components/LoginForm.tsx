@@ -63,7 +63,8 @@ export const LoginForm = (props: LoginFormProps) => {
         <Button
           pos="absolute"
           backgroundColor="yellow.400"
-          m="4"
+          mt="-55.9"
+          ml="350"
           transition="ease-in .2s"
           _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
         >
