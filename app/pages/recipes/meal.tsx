@@ -67,10 +67,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
           "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
         },
       }
-      const res = await fetch(
-        `https://edamam-recipe-search.p.rapidapi.com/search?q=${endpoint}`,
-        options
-      )
+      const res = await fetch(`https://themealdb.p.rapidapi.com/search.php?s=${endpoint}`, options)
       const data = await res.json()
 
       let meal = data.meals
