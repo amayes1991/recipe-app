@@ -59,54 +59,56 @@ const RecipesPage: BlitzPage = () => {
       </Head>
 
       <NavBar />
-      <Flex justify="center" align="center">
-        <Text
-          rounded="md"
-          p="2"
-          bg="whatsapp.400"
-          pos="absolute"
-          color="white"
-          textAlign="center"
-          fontSize="7xl"
-        >
-          Recipe Book
-        </Text>
-        <Image
-          h="5%"
-          w="100%"
-          src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        />
-      </Flex>
-      <Box bgImage="url('')" h="100%">
-        <Box borderWidth="9px" w="100%" m="auto" borderColor="whatsapp.400" boxShadow="2xl">
-          <Flex flexDirection="column" justifyContent="center" alignItems="center">
-            {/* <Text fontSize="xl" m="2"></Text> */}
+      <Box h="80vh">
+        <Flex justify="center" align="center">
+          <Text
+            rounded="md"
+            p="2"
+            bg="whatsapp.400"
+            pos="absolute"
+            color="white"
+            textAlign="center"
+            fontSize="7xl"
+          >
+            Recipe Book
+          </Text>
+          <Image
+            h="5%"
+            w="100%"
+            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          />
+        </Flex>
+        <Box bgImage="url('')" h="100%">
+          <Box borderWidth="9px" w="100%" m="auto" borderColor="whatsapp.400" boxShadow="2xl">
+            <Flex flexDirection="column" justifyContent="center" alignItems="center">
+              {/* <Text fontSize="xl" m="2"></Text> */}
 
-            <Suspense fallback={<div>Loading...</div>}>
-              <RecipesList />
-            </Suspense>
+              <Suspense fallback={<div>Loading...</div>}>
+                <RecipesList />
+              </Suspense>
+            </Flex>
+          </Box>
+          <Flex justify="center" alignItems="center" mt="6">
+            <Button
+              backgroundColor="yellow.400"
+              m="5"
+              _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
+            >
+              <Link href={Routes.NewRecipePage()}>
+                <a>Create Recipe</a>
+              </Link>
+            </Button>
+            <Button
+              backgroundColor="yellow.400"
+              transition="ease-in .2s"
+              _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
+            >
+              <Link href={Routes.Home()}>
+                <a>Click for Random Meal</a>
+              </Link>
+            </Button>
           </Flex>
         </Box>
-        <Flex justify="center" alignItems="center" mt="6">
-          <Button
-            backgroundColor="yellow.400"
-            m="5"
-            _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
-          >
-            <Link href={Routes.NewRecipePage()}>
-              <a>Create Recipe</a>
-            </Link>
-          </Button>
-          <Button
-            backgroundColor="yellow.400"
-            transition="ease-in .2s"
-            _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
-          >
-            <Link href={Routes.Home()}>
-              <a>Click for Random Meal</a>
-            </Link>
-          </Button>
-        </Flex>
       </Box>
 
       <Text bottom="0" textAlign="center" p="4" h="5%" w="100%" bg="whatsapp.300">
