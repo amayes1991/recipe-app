@@ -27,6 +27,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       key,
+      firstMeals,
     },
   }
 }
