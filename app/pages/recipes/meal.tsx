@@ -111,51 +111,51 @@ const Meal: BlitzPage = () => {
         </form>
       </Flex>
 
-      {endpoint === null ? null : (
-        <div>
-          {meal.map((m) => (
-            <Flex key={m.id} justify="center" alignItems="center">
-              <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
-                <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={m.recipe.id}>
-                  {m.recipe.label}
-                </Text>
-                <Flex flexDirection="column">
-                  <Image key={m.recipe.id} src={m.recipe.image} alt="recipe" />
-                  <div>
-                    <Text
-                      textAlign="center"
-                      m="6"
-                      fontSize="2xl"
-                      fontWeight="bold"
-                      textDecoration="underline"
-                    >
-                      Cook Time
+      {/* {endpoint === null ? null : ( */}
+      <div>
+        {meal.map((m) => (
+          <Flex key={m.id} justify="center" alignItems="center">
+            <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
+              <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={m.recipe.id}>
+                {m.recipe.label}
+              </Text>
+              <Flex flexDirection="column">
+                <Image key={m.recipe.id} src={m.recipe.image} alt="recipe" />
+                <div>
+                  <Text
+                    textAlign="center"
+                    m="6"
+                    fontSize="2xl"
+                    fontWeight="bold"
+                    textDecoration="underline"
+                  >
+                    Cook Time
+                  </Text>
+                  <Text textAlign="center" fontSize="xl">
+                    Ready in {m.recipe.totalTime} minutes
+                  </Text>
+                  <Text
+                    textAlign="center"
+                    m="6"
+                    fontSize="2xl"
+                    fontWeight="bold"
+                    textDecoration="underline"
+                    key={m.recipe.ingredientLines.id}
+                  >
+                    Ingredients
+                  </Text>
+                  {m.recipe.ingredientLines.map((ing) => (
+                    <Text key={ing.id} textAlign="center" ml="8" mb="2">
+                      {ing}
                     </Text>
-                    <Text textAlign="center" fontSize="xl">
-                      Ready in {m.recipe.totalTime} minutes
-                    </Text>
-                    <Text
-                      textAlign="center"
-                      m="6"
-                      fontSize="2xl"
-                      fontWeight="bold"
-                      textDecoration="underline"
-                      key={m.recipe.ingredientLines.id}
-                    >
-                      Ingredients
-                    </Text>
-                    {m.recipe.ingredientLines.map((ing) => (
-                      <Text key={ing.id} textAlign="center" ml="8" mb="2">
-                        {ing}
-                      </Text>
-                    ))}
-                  </div>
-                </Flex>
-              </Box>
-            </Flex>
-          ))}
-        </div>
-      )}
+                  ))}
+                </div>
+              </Flex>
+            </Box>
+          </Flex>
+        ))}
+      </div>
+      {/* )} */}
     </div>
   )
 }
