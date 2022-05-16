@@ -14,7 +14,7 @@ export const LoginForm = (props: LoginFormProps) => {
 
   return (
     <div>
-      <Box justifyContent="center" alignItems="center">
+      <Flex justifyContent="center" alignItems="center">
         <Text textAlign="center" fontSize="3xl">
           Login
         </Text>
@@ -56,7 +56,7 @@ export const LoginForm = (props: LoginFormProps) => {
         <div style={{ marginTop: "1rem" }}>
           Or <Link href={Routes.SignupPage()}>Sign Up</Link>
         </div>
-      </Box>
+      </Flex>
     </div>
   )
 }

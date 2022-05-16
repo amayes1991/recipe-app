@@ -23,14 +23,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   //   // console.log(meal)
   //   // setMeal(firstMeals)
   // }
-  // return {
-  //   props: {
-  //     firstMeals,
-  //   },
-  // }
+  return {
+    props: {
+      key,
+    },
+  }
 }
 
-const Meal: BlitzPage = ({ firstMeals }) => {
+const Meal: BlitzPage = () => {
   const [diet, setDiet] = useState("")
   const [endpoint, setEndpoint] = useState(null)
   const [page, setPage] = useState(null)
