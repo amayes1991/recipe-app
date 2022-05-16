@@ -1,7 +1,8 @@
 // @ts-nocheck
 import React, { useState, useEffect } from "react"
 import { Text, Flex, Box, Image, Button } from "@chakra-ui/react"
-
+import NavBar from "app/core/components/NavBar"
+import { SearchIcon } from "@chakra-ui/icons"
 import { BlitzPage } from "blitz"
 import { z } from "zod"
 
@@ -48,7 +49,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
         method: "GET",
         headers: {
           "X-RapidAPI-Host": "themealdb.p.rapidapi.com",
-          "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
+          "X-RapidAPI-Key": `${process.env.RAPID_KEY}`,
         },
       }
       const res = await fetch(`https://themealdb.p.rapidapi.com/search.php?s=${endpoint}`, options)
@@ -65,6 +66,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
 
   return (
     <div>
+      <NavBar />
       <Flex justify="center">
         <Text
           bg="whatsapp.400"
@@ -104,6 +106,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
               as="button"
               type="submit"
             >
+              <SearchIcon mr="2" />
               Search{" "}
             </Button>
           </Flex>
