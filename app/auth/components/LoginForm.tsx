@@ -46,7 +46,12 @@ export const LoginForm = (props: LoginFormProps) => {
             placeholder="Password"
             type="password"
           />
-          <Button>
+          <Button
+            backgroundColor="yellow.400"
+            m="4"
+            transition="ease-in .2s"
+            _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
+          >
             <div>
               <Link href={Routes.ForgotPasswordPage()}>
                 <a>Forgot your password?</a>
@@ -54,7 +59,12 @@ export const LoginForm = (props: LoginFormProps) => {
             </div>
           </Button>
         </Form>
-        <Button>
+        <Button
+          backgroundColor="yellow.400"
+          m="4"
+          transition="ease-in .2s"
+          _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
+        >
           <div style={{ marginTop: "1rem" }}>
             Or <Link href={Routes.SignupPage()}>Sign Up</Link>
           </div>

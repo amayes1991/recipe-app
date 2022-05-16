@@ -130,14 +130,14 @@ const Meal: BlitzPage = ({ firstMeals }) => {
 
       {endpoint === null ? (
         <div>
-          {firstMeals.map((m) => (
-            <Flex key={m.id} justify="center" alignItems="center">
+          {firstMeals.map((me) => (
+            <Flex key={me.id} justify="center" alignItems="center">
               <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
-                <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={m.recipe.id}>
-                  {m.recipe.label}
+                <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={me.recipe.id}>
+                  {me.recipe.label}
                 </Text>
                 <Flex flexDirection="column">
-                  <Image key={m.recipe.id} src={m.recipe.image} alt="recipe" />
+                  <Image key={me.recipe.id} src={me.recipe.image} alt="recipe" />
                   <div>
                     <Text
                       textAlign="center"
@@ -149,7 +149,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
                       Cook Time
                     </Text>
                     <Text textAlign="center" fontSize="xl">
-                      Ready in {m.recipe.totalTime} minutes
+                      Ready in {me.recipe.totalTime} minutes
                     </Text>
                     <Text
                       textAlign="center"
@@ -157,13 +157,13 @@ const Meal: BlitzPage = ({ firstMeals }) => {
                       fontSize="2xl"
                       fontWeight="bold"
                       textDecoration="underline"
-                      key={m.recipe.ingredientLines.id}
+                      key={me.recipe.ingredientLines.id}
                     >
                       Ingredients
                     </Text>
-                    {m.recipe.ingredientLines.map((ing) => (
-                      <Text key={ing.id} textAlign="center" ml="8" mb="2">
-                        {ing}
+                    {m.recipe.ingredientLines.map((ings) => (
+                      <Text key={ings.id} textAlign="center" ml="8" mb="2">
+                        {ings}
                       </Text>
                     ))}
                   </div>
