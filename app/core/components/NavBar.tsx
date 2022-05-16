@@ -50,7 +50,7 @@ function NavBar() {
       fontStyle="italic"
       justify="center"
       backgroundColor="whatsapp.300"
-      width="100%"
+      width="100vw"
       p="2"
       boxShadow="xl"
     >
