@@ -46,6 +46,7 @@ export const LoginForm = (props: LoginFormProps) => {
             placeholder="Password"
             type="password"
           />
+
           <Button
             backgroundColor="yellow.400"
             m="4"
@@ -60,12 +61,13 @@ export const LoginForm = (props: LoginFormProps) => {
           </Button>
         </Form>
         <Button
+          pos="absolute"
           backgroundColor="yellow.400"
           m="4"
           transition="ease-in .2s"
           _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
         >
-          <div style={{ marginTop: "1rem" }}>
+          <div>
             Or <Link href={Routes.SignupPage()}>Sign Up</Link>
           </div>
         </Button>
