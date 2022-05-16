@@ -132,7 +132,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
 
       {endpoint === null ? (
         <div>
-          {meal.map((me) => (
+          {firstMeals.map((me) => (
             <Flex key={me.id} justify="center" alignItems="center">
               <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
                 <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={me.recipe.id}>
