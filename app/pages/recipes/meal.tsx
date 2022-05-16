@@ -131,25 +131,24 @@ const Meal: BlitzPage = () => {
                       Instructions
                     </Text>
                     <Text m="9">{m.strInstructions}</Text>
-                    <Text></Text>
-                    {/* <Text textAlign="center" fontSize="xl">
-                      Ready in {m.recipe.totalTime} minutes
-                    </Text> */}
-                    {/* <Text
+                    <Text
                       textAlign="center"
                       m="6"
                       fontSize="2xl"
                       fontWeight="bold"
                       textDecoration="underline"
-                      key={m.recipe.ingredientLines.id}
                     >
                       Ingredients
                     </Text>
-                    {m.recipe.ingredientLines.map((ing) => (
-                      <Text key={ing.id} textAlign="center" ml="8" mb="2">
-                        {ing}
-                      </Text>
-                    ))} */}
+                    <Box textAlign="center" mb="8">
+                      <Text as="li">{m.strIngredient1}</Text>
+                      <Text as="li">{m.strIngredient2}</Text>
+                      <Text as="li">{m.strIngredient3}</Text>
+                      <Text as="li">{m.strIngredient4}</Text>
+                      <Text as="li">{m.strIngredient5}</Text>
+                      <Text as="li">{m.strIngredient6}</Text>
+                      <Text as="li">{m.strIngredient7}</Text>
+                    </Box>
                   </div>
                 </Flex>
               </Box>
