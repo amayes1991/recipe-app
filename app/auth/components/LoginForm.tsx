@@ -14,8 +14,8 @@ export const LoginForm = (props: LoginFormProps) => {
 
   return (
     <div>
-      <Box justifyContent="center" alignItems="center">
-        <Text textAlign="center" fontSize="3xl">
+      <Box justifyContent="center" alignItems="center" m="5">
+        <Text textAlign="center" bg="whatsapp.300" rounded="full" fontSize="3xl">
           Login
         </Text>
 

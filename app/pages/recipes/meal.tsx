@@ -162,7 +162,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
                     >
                       Ingredients
                     </Text>
-                    {m.recipe.ingredientLines.map((ings) => (
+                    {me.recipe.ingredientLines.map((ings) => (
                       <Text key={ings.id} textAlign="center" ml="8" mb="2">
                         {ings}
                       </Text>

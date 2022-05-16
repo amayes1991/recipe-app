@@ -3,6 +3,7 @@ import { LabeledTextField } from "app/core/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/core/components/Form"
 import signup from "app/auth/mutations/signup"
 import { Signup } from "app/auth/validations"
+import { Heading, Text, Flex, Box, Image, Button } from "@chakra-ui/react"
 
 type SignupFormProps = {
   onSuccess?: () => void
@@ -13,7 +14,9 @@ export const SignupForm = (props: SignupFormProps) => {
 
   return (
     <div>
-      <h1>Create an Account</h1>
+      <Text bg="whatsapp.300" rounded="full">
+        Create an Account
+      </Text>
 
       <Form
         submitText="Create Account"
