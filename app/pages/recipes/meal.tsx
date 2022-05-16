@@ -1,30 +1,30 @@
 // @ts-nocheck
 import React, { useState, useEffect } from "react"
 import { Text, Flex, Box, Image, Button } from "@chakra-ui/react"
-import NavBar from "app/core/components/NavBar"
-import { SearchIcon } from "@chakra-ui/icons"
+
 import { BlitzPage } from "blitz"
 import { z } from "zod"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const key = process.env.MEAL_KEY
 
-  // const request = async () => {
-  //   const option = {
-  //     method: "GET",
-  //     headers: {
-  //       "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
-  //       "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
-  //     },
-  //   }
-  //   const res = await fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=salad`, option)
-  //   const initial = await res.json()
+  //   const request = async () => {
+  //     const option = {
+  //       method: "GET",
+  //       headers: {
+  //         "X-RapidAPI-Host": "themealdb.p.rapidapi.com",
+  //         "X-RapidAPI-Key": `a8109881damshb34a86560438612p133d27jsn866649516d23`,
+  //       },
+  //     }
+  //     const res = await fetch(`https://themealdb.p.rapidapi.com/search.php?s=salad`, option)
+  //     const initial = await res.json()
 
-  //   let firstMeals = initial.hits
-  //   // console.log(meal)
-  //   setMeal(firstMeals)
-  // }
-  // request()
+  // let firstMeals = initial.hits
+  // console.log(meal)
+  // setMeal(firstMeals)
+  //   }
+  //   request()
+  //   console.log(initial)
   return {
     props: {
       key,
@@ -32,11 +32,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-const Meal: BlitzPage = () => {
+const Meal: BlitzPage = ({ firstMeals }) => {
   const [diet, setDiet] = useState("")
   const [endpoint, setEndpoint] = useState("salad")
   const [page, setPage] = useState(null)
   const [meal, setMeal] = useState([])
+  const [count, setCount] = useState(1)
 
   const handlediet = (e) => {
     const entry = e.target.value
@@ -50,7 +51,7 @@ const Meal: BlitzPage = () => {
     const fieldQuery = fields.find((field) => field.name === "q")
 
     const value = fieldQuery.value || ""
-    const result = `https://themealdb.p.rapidapi.com/search.php?s=${value}`
+    const result = `https://edamam-recipe-search.p.rapidapi.com/search?q=${value}`
 
     setEndpoint(value)
 
@@ -58,28 +59,29 @@ const Meal: BlitzPage = () => {
   }
 
   useEffect(() => {
-    let endpoint = "salad"
+    // let endpoint = "salad"
     const request = async () => {
       const options = {
         method: "GET",
         headers: {
           "X-RapidAPI-Host": "themealdb.p.rapidapi.com",
-          "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
+          "X-RapidAPI-Key": `a8109881damshb34a86560438612p133d27jsn866649516d23`,
         },
       }
       const res = await fetch(`https://themealdb.p.rapidapi.com/search.php?s=${endpoint}`, options)
       const data = await res.json()
 
       let meal = data.meals
-      // console.log(meal)
+      console.log(data.meals)
       setMeal(meal)
     }
     request()
   }, [page])
 
+  console.log(meal)
+
   return (
     <div>
-      <NavBar />
       <Flex justify="center">
         <Text
           bg="whatsapp.400"
@@ -119,7 +121,6 @@ const Meal: BlitzPage = () => {
               as="button"
               type="submit"
             >
-              <SearchIcon mr="2" />
               Search{" "}
             </Button>
           </Flex>
@@ -127,6 +128,49 @@ const Meal: BlitzPage = () => {
       </Flex>
 
       {endpoint === null ? null : (
+        // <div>
+        //   {meal.map((me) => (
+        //     <Flex key={me.id} justify="center" alignItems="center">
+        //       <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
+        //         <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={me.recipe.id}>
+        //           {me.recipe.label}
+        //         </Text>
+        //         <Flex flexDirection="column">
+        //           <Image key={me.recipe.id} src={me.recipe.image} alt="recipe" />
+        //           <div>
+        //             <Text
+        //               textAlign="center"
+        //               m="6"
+        //               fontSize="2xl"
+        //               fontWeight="bold"
+        //               textDecoration="underline"
+        //             >
+        //               Cook Time
+        //             </Text>
+        //             <Text textAlign="center" fontSize="xl">
+        //               Ready in {me.recipe.totalTime} minutes
+        //             </Text>
+        //             <Text
+        //               textAlign="center"
+        //               m="6"
+        //               fontSize="2xl"
+        //               fontWeight="bold"
+        //               textDecoration="underline"
+        //               key={me.recipe.ingredientLines.id}
+        //             >
+        //               Ingredients
+        //             </Text>
+        //             {me.recipe.ingredientLines.map((ings) => (
+        //               <Text key={ings.id} textAlign="center" ml="8" mb="2">
+        //                 {ings}
+        //               </Text>
+        //             ))}
+        //           </div>
+        //         </Flex>
+        //       </Box>
+        //     </Flex>
+        //   ))}
+        // </div>
         <div>
           {meal.map((m) => (
             <Flex key={m.idMeal} justify="center" alignItems="center">
@@ -146,11 +190,12 @@ const Meal: BlitzPage = () => {
                     >
                       Instructions
                     </Text>
-                    <Text>{m.strInstructions}</Text>
+                    <Text m="9">{m.strInstructions}</Text>
+                    <Text></Text>
                     {/* <Text textAlign="center" fontSize="xl">
                       Ready in {m.recipe.totalTime} minutes
-                    </Text>
-                    <Text
+                    </Text> */}
+                    {/* <Text
                       textAlign="center"
                       m="6"
                       fontSize="2xl"
