@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-const Meal: BlitzPage = ({ firstMeals }) => {
+const Meal: BlitzPage = () => {
   const [diet, setDiet] = useState("")
   const [endpoint, setEndpoint] = useState("salad")
   const [page, setPage] = useState(null)
@@ -50,7 +50,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
     const fieldQuery = fields.find((field) => field.name === "q")
 
     const value = fieldQuery.value || ""
-    const result = `https://edamam-recipe-search.p.rapidapi.com/search?q=${value}`
+    const result = `https://themealdb.p.rapidapi.com/search.php?s=${value}`
 
     setEndpoint(value)
 
