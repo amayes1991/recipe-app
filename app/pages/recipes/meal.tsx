@@ -56,6 +56,7 @@ const Meal: BlitzPage = () => {
   }
 
   useEffect(() => {
+    let endpoint = "salad"
     const request = async () => {
       const options = {
         method: "GET",
@@ -126,7 +127,7 @@ const Meal: BlitzPage = () => {
         </form>
       </Flex>
 
-      {endpoint === null ? null : (
+      {endpoint === "salad" ? null : (
         // <div>
         //   {firstMeals.map((m) => (
         //     <Flex key={m.id} justify="center" alignItems="center">

@@ -46,16 +46,19 @@ export const LoginForm = (props: LoginFormProps) => {
             placeholder="Password"
             type="password"
           />
-          <div>
-            <Link href={Routes.ForgotPasswordPage()}>
-              <a>Forgot your password?</a>
-            </Link>
-          </div>
+          <Button>
+            <div>
+              <Link href={Routes.ForgotPasswordPage()}>
+                <a>Forgot your password?</a>
+              </Link>
+            </div>
+          </Button>
         </Form>
-
-        <div style={{ marginTop: "1rem" }}>
-          Or <Link href={Routes.SignupPage()}>Sign Up</Link>
-        </div>
+        <Button>
+          <div style={{ marginTop: "1rem" }}>
+            Or <Link href={Routes.SignupPage()}>Sign Up</Link>
+          </div>
+        </Button>
       </Box>
     </div>
   )
