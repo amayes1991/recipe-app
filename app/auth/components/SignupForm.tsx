@@ -13,7 +13,7 @@ export const SignupForm = (props: SignupFormProps) => {
   const [signupMutation] = useMutation(signup)
 
   return (
-    <div>
+    <Box m="5">
       <Text textAlign="center" bg="whatsapp.300" rounded="full" fontSize="3xl">
         Create an Account
       </Text>
@@ -39,7 +39,7 @@ export const SignupForm = (props: SignupFormProps) => {
         <LabeledTextField name="email" label="Email" placeholder="Email" />
         <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
       </Form>
-    </div>
+    </Box>
   )
 }
 

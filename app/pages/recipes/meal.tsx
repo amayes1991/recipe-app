@@ -9,33 +9,32 @@ import { z } from "zod"
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const key = process.env.MEAL_KEY
 
-  const request = async () => {
-    const option = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
-        "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
-      },
-    }
-    const res = await fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=salad`, option)
-    const initial = await res.json()
+  // const request = async () => {
+  //   const option = {
+  //     method: "GET",
+  //     headers: {
+  //       "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
+  //       "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
+  //     },
+  //   }
+  //   const res = await fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=salad`, option)
+  //   const initial = await res.json()
 
-    let firstMeals = initial.hits
-    // console.log(meal)
-    setMeal(firstMeals)
-  }
-  request()
+  //   let firstMeals = initial.hits
+  //   // console.log(meal)
+  //   setMeal(firstMeals)
+  // }
+  // request()
   return {
     props: {
       key,
-      firstMeals,
     },
   }
 }
 
 const Meal: BlitzPage = ({ firstMeals }) => {
   const [diet, setDiet] = useState("")
-  const [endpoint, setEndpoint] = useState(null)
+  const [endpoint, setEndpoint] = useState("salad")
   const [page, setPage] = useState(null)
   const [meal, setMeal] = useState([])
 
@@ -64,7 +63,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
+          "X-RapidAPI-Host": "themealdb.p.rapidapi.com",
           "X-RapidAPI-Key": `${process.env.MEAL_KEY}`,
         },
       }
@@ -74,8 +73,8 @@ const Meal: BlitzPage = ({ firstMeals }) => {
       )
       const data = await res.json()
 
-      let meal = data.hits
-      console.log(meal)
+      let meal = data.meals
+      // console.log(meal)
       setMeal(meal)
     }
     request()
@@ -130,60 +129,16 @@ const Meal: BlitzPage = ({ firstMeals }) => {
         </form>
       </Flex>
 
-      {endpoint === null ? (
-        <div>
-          {firstMeals.map((me) => (
-            <Flex key={me.id} justify="center" alignItems="center">
-              <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
-                <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={me.recipe.id}>
-                  {me.recipe.label}
-                </Text>
-                <Flex flexDirection="column">
-                  <Image key={me.recipe.id} src={me.recipe.image} alt="recipe" />
-                  <div>
-                    <Text
-                      textAlign="center"
-                      m="6"
-                      fontSize="2xl"
-                      fontWeight="bold"
-                      textDecoration="underline"
-                    >
-                      Cook Time
-                    </Text>
-                    <Text textAlign="center" fontSize="xl">
-                      Ready in {me.recipe.totalTime} minutes
-                    </Text>
-                    <Text
-                      textAlign="center"
-                      m="6"
-                      fontSize="2xl"
-                      fontWeight="bold"
-                      textDecoration="underline"
-                      key={me.recipe.ingredientLines.id}
-                    >
-                      Ingredients
-                    </Text>
-                    {me.recipe.ingredientLines.map((ings) => (
-                      <Text key={ings.id} textAlign="center" ml="8" mb="2">
-                        {ings}
-                      </Text>
-                    ))}
-                  </div>
-                </Flex>
-              </Box>
-            </Flex>
-          ))}
-        </div>
-      ) : (
+      {endpoint === null ? null : (
         <div>
           {meal.map((m) => (
-            <Flex key={m.id} justify="center" alignItems="center">
+            <Flex key={m.idMeal} justify="center" alignItems="center">
               <Box w="2xl" m="5" bg="whatsapp.300" boxShadow="2xl" rounded="md">
-                <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={m.recipe.id}>
-                  {m.recipe.label}
+                <Text textAlign="center" fontSize="3xl" fontWeight="bold" key={m.idMeal}>
+                  {m.strMeal}
                 </Text>
                 <Flex flexDirection="column">
-                  <Image key={m.recipe.id} src={m.recipe.image} alt="recipe" />
+                  <Image key={m.idMeal} src={m.strMealThumb} alt="recipe" />
                   <div>
                     <Text
                       textAlign="center"
@@ -192,9 +147,10 @@ const Meal: BlitzPage = ({ firstMeals }) => {
                       fontWeight="bold"
                       textDecoration="underline"
                     >
-                      Cook Time
+                      Instructions
                     </Text>
-                    <Text textAlign="center" fontSize="xl">
+                    <Text>{m.strInstructions}</Text>
+                    {/* <Text textAlign="center" fontSize="xl">
                       Ready in {m.recipe.totalTime} minutes
                     </Text>
                     <Text
@@ -211,7 +167,7 @@ const Meal: BlitzPage = ({ firstMeals }) => {
                       <Text key={ing.id} textAlign="center" ml="8" mb="2">
                         {ing}
                       </Text>
-                    ))}
+                    ))} */}
                   </div>
                 </Flex>
               </Box>
