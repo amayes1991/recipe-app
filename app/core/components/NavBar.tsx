@@ -2,6 +2,7 @@
 import React from "react"
 import { Heading, Text, Flex, Box, Image } from "@chakra-ui/react"
 import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
+import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 
 const UserInfo = () => {
   const currentUser = useCurrentUser()
