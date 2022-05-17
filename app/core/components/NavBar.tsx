@@ -34,7 +34,6 @@ function NavBar() {
           Meal Search
         </Text>
       </Link>
-      {/* <UserInfo /> */}
     </Flex>
   )
 }
