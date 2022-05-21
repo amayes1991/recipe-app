@@ -82,8 +82,6 @@ export const Recipe = () => {
           </button>
         </Box>
       </div>
-
-      <Footer />
     </>
   )
 }
@@ -95,6 +93,7 @@ const ShowRecipePage: BlitzPage = () => {
         <Recipe />
       </Suspense>
       <Button
+        mb="7"
         bg="yellow.300"
         borderWidth="1px"
         rounded="lg"
@@ -105,6 +104,7 @@ const ShowRecipePage: BlitzPage = () => {
           <a>Back to All Recipes</a>
         </Link>
       </Button>
+      <Footer />
     </Flex>
   )
 }
