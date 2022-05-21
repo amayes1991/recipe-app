@@ -111,7 +111,7 @@ const RecipesPage: BlitzPage = () => {
         </Box>
       </Box>
 
-      <Text bottom="0" textAlign="center" p="4" h="5%" w="100%" bg="whatsapp.300">
+      <Text position="sticky" bottom="0" textAlign="center" p="4" h="5%" w="100%" bg="whatsapp.300">
         COPYRIGHT &#169; Austin
       </Text>
     </>
