@@ -100,7 +100,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
         <main>
           <Box
             // w={["2xl", "100%"]}
-            w="2xl"
+            // w="2xl"
             borderWidth="3px"
             borderColor="whatsapp.400"
             rounded="lg"
@@ -147,7 +147,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
           COPYRIGHT &#169; Austin
         </Text>
 
-        {/* <style jsx global>{`
+        <style jsx global>{`
           @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;700&display=swap");
 
           html,
@@ -277,7 +277,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
               flex-direction: column;
             }
           }
-        `}</style> */}
+        `}</style>
       </div>
     </Box>
   )

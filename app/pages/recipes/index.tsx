@@ -59,7 +59,7 @@ const RecipesPage: BlitzPage = () => {
       </Head>
 
       <NavBar />
-      <Box h="80vh">
+      <Box h="80vh" mb="9">
         <Flex justify="center" align="center">
           <Text
             rounded="md"
@@ -111,7 +111,7 @@ const RecipesPage: BlitzPage = () => {
         </Box>
       </Box>
 
-      <Text position="sticky" bottom="0" textAlign="center" p="4" h="5%" w="100%" bg="whatsapp.300">
+      <Text position="fixed" bottom="0" textAlign="center" p="4" h="5%" w="100%" bg="whatsapp.300">
         COPYRIGHT &#169; Austin
       </Text>
     </>
