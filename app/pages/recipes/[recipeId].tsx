@@ -28,7 +28,7 @@ export const Recipe = () => {
       </Head>
       <NavBar />
       <div>
-        <Box boxShadow="2xl" mt="16" mb="3" bg="whatsapp.300">
+        <Box ml="5" mr="5" boxShadow="2xl" mt="16" mb="3" bg="whatsapp.300">
           <Text textAlign="center" as="h1" fontSize="4xl" fontWeight="bold">
             {recipe.title} Recipe{" "}
           </Text>

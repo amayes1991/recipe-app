@@ -101,6 +101,8 @@ const Home: BlitzPage = ({ newRecipe }) => {
           <Box
             // w={["2xl", "100%"]}
             // w="2xl"
+            ml="5"
+            mr="5"
             borderWidth="3px"
             borderColor="whatsapp.400"
             rounded="lg"
