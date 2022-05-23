@@ -74,7 +74,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Home: BlitzPage = ({ newRecipe }) => {
   return (
-    <Box overflowX="none" borderWidth="4px" borderColor="whatsapp.300">
+    <Box borderWidth="4px" borderColor="whatsapp.300">
       <div className="container">
         <NavBar />
         <Image
@@ -97,7 +97,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
         >
           Random Recipe
         </Text>
-        <main style={{ width: "100%" }}>
+        <main>
           <Box
             w={["100%", "90%", "2xl", "2xl"]}
             // w={["2xl", "100%"]}
@@ -180,6 +180,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            width: 100%;
           }
 
           main p {
