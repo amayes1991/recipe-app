@@ -99,9 +99,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
         </Text>
         <main>
           <Box
-            w={["100%", "90%", "2xl", "2xl"]}
-            // w={["2xl", "100%"]}
-            // w="2xl"
+            w={["80%", "80%", "2xl", "2xl"]}
             ml="5"
             mr="5"
             borderWidth="3px"
@@ -180,7 +178,6 @@ const Home: BlitzPage = ({ newRecipe }) => {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 100%;
           }
 
           main p {
