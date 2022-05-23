@@ -74,7 +74,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Home: BlitzPage = ({ newRecipe }) => {
   return (
-    <Box borderWidth="4px" borderColor="whatsapp.300">
+    <Box overflowX="none" borderWidth="4px" borderColor="whatsapp.300">
       <div className="container">
         <NavBar />
         <Image
@@ -97,7 +97,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
         >
           Random Recipe
         </Text>
-        <main>
+        <main style={{ width: "100%" }}>
           <Box
             w={["100%", "90%", "2xl", "2xl"]}
             // w={["2xl", "100%"]}
