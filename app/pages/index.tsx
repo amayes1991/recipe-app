@@ -99,6 +99,7 @@ const Home: BlitzPage = ({ newRecipe }) => {
         </Text>
         <main>
           <Box
+            w={["100%", "90%", "2xl", "2xl"]}
             // w={["2xl", "100%"]}
             // w="2xl"
             ml="5"
