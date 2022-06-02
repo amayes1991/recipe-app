@@ -4,6 +4,7 @@ import { Form, FORM_ERROR } from "app/core/components/Form"
 import signup from "app/auth/mutations/signup"
 import { Signup } from "app/auth/validations"
 import { Heading, Text, Flex, Box, Image, Button } from "@chakra-ui/react"
+import NavBar from "app/core/components/NavBar"
 
 type SignupFormProps = {
   onSuccess?: () => void
@@ -14,6 +15,7 @@ export const SignupForm = (props: SignupFormProps) => {
 
   return (
     <Box m="5">
+      <NavBar />
       <Text textAlign="center" bg="whatsapp.300" rounded="full" fontSize="3xl">
         Create an Account
       </Text>

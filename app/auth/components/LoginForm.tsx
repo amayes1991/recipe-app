@@ -4,6 +4,7 @@ import { Form, FORM_ERROR } from "app/core/components/Form"
 import login from "app/auth/mutations/login"
 import { Login } from "app/auth/validations"
 import { Heading, Text, Flex, Box, Image, Button } from "@chakra-ui/react"
+import NavBar from "app/core/components/NavBar"
 
 type LoginFormProps = {
   onSuccess?: (user: PromiseReturnType<typeof login>) => void
@@ -14,6 +15,7 @@ export const LoginForm = (props: LoginFormProps) => {
 
   return (
     <div>
+      <NavBar />
       <Box justifyContent="center" alignItems="center" m="5">
         <Text textAlign="center" bg="whatsapp.300" rounded="full" fontSize="3xl">
           Login
@@ -63,9 +65,9 @@ export const LoginForm = (props: LoginFormProps) => {
         <Button
           pos="absolute"
           backgroundColor="yellow.400"
-          mt="-55.9"
-          ml="350"
           transition="ease-in .2s"
+          marginLeft={[4, 350]}
+          marginTop={[5, -55.9]}
           _hover={{ bg: "whatsapp.400", boxShadow: "2xl" }}
         >
           <div>
