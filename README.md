@@ -1,5 +1,5 @@
 Recipe app
-https://recipe-app3-elrr0g7yl-amayes1991.vercel.app/
+https://recipe-app3-1lhunewep-amayes1991.vercel.app/
 
 [![Blitz.js](https://raw.githubusercontent.com/blitz-js/art/master/github-cover-photo.png)](https://blitzjs.com)
 
