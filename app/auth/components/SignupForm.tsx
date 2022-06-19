@@ -15,8 +15,8 @@ export const SignupForm = (props: SignupFormProps) => {
 
   return (
     <div>
+      <NavBar />
       <Box m="5">
-        <NavBar />
         <Text textAlign="center" bg="whatsapp.300" rounded="full" fontSize="3xl">
           Create an Account
         </Text>
